@@ -23,7 +23,7 @@ async def on_raw_reaction_add(payload):
     if payload.message_id == id_message: # message id of the message through which the role will be received with the help of emoji
         guild = client.get_guild(payload.guild_id)
         if payload.emoji.name == "name_emoji":
-            role = discord.utils.get(guild.roles, name="name_emoji")
+            role = discord.utils.get(guild.roles, name="name_role")
             await payload.member.add_roles(role)
 
 
@@ -33,7 +33,7 @@ async def on_raw_reaction_remove(payload):
         guild = client.get_guild(payload.guild_id)
         member = guild.get_member(payload.user_id)
         if payload.emoji.name == "name_emoji":
-            role = discord.utils.get(guild.roles, name="name_emoji")
+            role = discord.utils.get(guild.roles, name="name_role")
             await member.remove_roles(role)
 
 
